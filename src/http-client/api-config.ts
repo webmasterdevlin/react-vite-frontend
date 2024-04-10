@@ -8,6 +8,7 @@ export const api = axios.create({
 });
 
 export const EndPoints = {
+  health: 'health',
   hello: 'hello',
 } as const;
 
