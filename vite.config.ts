@@ -10,7 +10,13 @@ const isDevelopment = process.env.NODE_ENV === 'development';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), viteTsconfigPaths(), million.vite({ auto: true }), TanStackRouterVite()],
+  plugins: [
+    react(),
+    viteTsconfigPaths(),
+    million.vite({ auto: true }),
+
+    // TanStackRouterVite()
+  ],
   test: {
     include: ['src/**/*.{test,spec}.{js,ts,tsx}'],
     exclude: ['src/e2e'],

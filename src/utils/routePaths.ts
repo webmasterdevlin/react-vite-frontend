@@ -1,7 +1,4 @@
 export const root = [
   ['/', 'home'],
-  ['/heroes', 'heroes'],
-  ['/villains', 'villains'],
-  ['/anti-heroes', 'antiHeroes'],
-  ['/table', 'table'],
+  ['/oauth2-redirect', 'callback'],
 ] as const;
