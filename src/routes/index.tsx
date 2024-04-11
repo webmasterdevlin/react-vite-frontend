@@ -21,8 +21,7 @@ function IndexComponent() {
 
   return (
     <div className={'flex h-screen flex-col items-center justify-center'}>
-      <h2>React Vite + FastAPI on {isDevelopment ? 'dev' : 'prod'} environment</h2>
-      <h3>Sending HTTP requests to {import.meta.env.VITE_BASE_URL}</h3>
+      <h2>React Vite + FastAPI is running on &apos;{isDevelopment ? 'dev' : 'prod'}&apos; environment</h2>
       <h3>{JSON.stringify(message, null, 2)}</h3>
     </div>
   );
