@@ -43,6 +43,6 @@ export const msalConfig = {
  * https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes
  */
 export const loginRequest = {
-  scopes: ['openid', 'profile', 'User.Read', 'api://b59e3a9a-8fc0-4942-ac8c-fcf5eefb59bc/user_impersonation'], // Add other scopes as needed
+  scopes: ['openid', 'profile', 'User.Read'], // Add other scopes as needed
 };
 export const msalInstance = new PublicClientApplication(msalConfig);
