@@ -14,6 +14,7 @@ function IndexComponent() {
   const [message, setMessage] = useState<healthResponse>();
 
   useEffect(() => {
+    // TODO: Add Authorization header
     api.get<healthResponse>(`${EndPoints.health}`).then(res => {
       setMessage(res.data);
     });
