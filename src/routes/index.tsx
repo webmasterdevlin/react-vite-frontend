@@ -1,5 +1,7 @@
+import { useMsal } from '@azure/msal-react';
 import { createFileRoute } from '@tanstack/react-router';
 import { useEffect, useState } from 'react';
+import { loginRequest } from '../auth/config.ts';
 import { EndPoints, api } from '../http-client/api-config.ts';
 
 const isDevelopment = process.env.NODE_ENV === 'development';
@@ -12,11 +14,24 @@ export const Route = createFileRoute('/')({
 
 function IndexComponent() {
   const [message, setMessage] = useState<healthResponse>();
+  const { instance, accounts } = useMsal();
 
   useEffect(() => {
-    // TODO: Add Authorization header
-    api.get<healthResponse>(`${EndPoints.health}`).then(res => {
-      setMessage(res.data);
+    const request = {
+      ...loginRequest,
+      account: accounts[0], // Assuming the user is logged in and the account is cached
+    };
+
+    instance.acquireTokenSilent(request).then(response => {
+      api
+        .get<healthResponse>(`${EndPoints.health}`, {
+          headers: {
+            Authorization: 'Bearer ' + response.accessToken,
+          },
+        })
+        .then(res => {
+          setMessage(res.data);
+        });
     });
   }, []);
 
