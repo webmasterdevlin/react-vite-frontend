@@ -14,23 +14,23 @@ This project was bootstrapped with [Vite](https://vitejs.dev/).
 Login to Docker Hub
 
 ```zsh
-$ docker login
+docker login
 ```
 
 create a React container
 
 ```zsh
-$ docker build -t webmasterdevlin/react-vite:1.0.0 .
+docker build -t webmasterdevlin/react-vite:<version> .
 ```
 
 Test the React container by running it. It should be visible at localhost:8080
 
 ```zsh
-$ docker run -p 8080:80 webmasterdevlin/react-vite:1.0.0
+docker run -p 8080:80 webmasterdevlin/react-vite:<version>
 ```
 
 Push the container to your Docker Hub account repository
 
 ```zsh
-$ docker push webmasterdevlin/react-vite:1.0.0
+docker push webmasterdevlin/react-vite:<version>
 ```
